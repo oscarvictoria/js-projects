@@ -6,6 +6,8 @@ nameDisplay.textContent = " Current Player:" + " " + playerName;
 
 var round = 0;
 
+var currentPlayer = "";
+
 var player1 = "Oscar";
 
 var player2 = "Alex";
@@ -57,6 +59,9 @@ function trackCurrentEvent() {
 }
 
 function playButtonClicked() {
+  currentPlayer = player1;
+
+  console.log(currentPlayer);
   newRound();
   generateDiceRoll();
 
@@ -78,6 +83,15 @@ function playButtonClicked() {
   }
 
   //  Switch current player
+  currentPlayer = player2;
+
+  //   if (currentPlayer === player1) {
+  //     currentPlayer = player2;
+  //   } else if (currentPlayer === player2) {
+  //     currentPlayer = player1;
+  //   }
+
+  console.log(currentPlayer);
 }
 
 function resetButtonClicked() {
