@@ -18,6 +18,8 @@ var lastDiceRoll = 1;
 
 var currentEvent = ["Dice roll", "Double", "Nothing"];
 
+var randomEvent = "";
+
 function trackRound() {
   return round;
 }
@@ -48,7 +50,10 @@ function generateDiceRoll() {
 }
 
 function trackCurrentEvent() {
-  return currentEvent[lastDiceRoll];
+  var randomNumber = Math.floor(Math.random() * currentEvent.length);
+  randomEvent = currentEvent[randomNumber];
+  return randomEvent;
+  //   return currentEvent[randomNumber];
 }
 
 function playButtonClicked() {
@@ -59,8 +64,18 @@ function playButtonClicked() {
   console.log("Dice Roll:" + " " + lastDiceRoll);
 
   // Select random event
+  trackCurrentEvent();
+
+  console.log("event: " + randomEvent);
 
   //  Apply event rule to score
+  if (randomEvent === "Dice roll") {
+    playerOneScore = lastDiceRoll;
+    console.log("score:" + " " + playerOneScore);
+  } else if (randomEvent === "Double") {
+    playerOneScore = lastDiceRoll * 2;
+    console.log("score:" + " " + playerOneScore);
+  }
 
   //  Switch current player
 }
