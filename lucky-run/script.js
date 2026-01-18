@@ -6,11 +6,11 @@ nameDisplay.textContent = " Current Player:" + " " + playerName;
 
 var round = 0;
 
-var currentPlayer = "";
-
 var player1 = "Oscar";
 
 var player2 = "Alex";
+
+var currentPlayer = player1;
 
 var playerOneScore = 0;
 
@@ -58,10 +58,21 @@ function trackCurrentEvent() {
   //   return currentEvent[randomNumber];
 }
 
-function playButtonClicked() {
-  currentPlayer = player1;
+function checkWin() {
+  if (playerOneScore === 20) {
+    //  Stop game when someone wins
+    //  Display winner
 
-  console.log(currentPlayer);
+    console.log("Player One Wins");
+  }
+}
+
+function playButtonClicked() {
+  // currentPlayer = player1;
+
+  checkWin();
+
+  console.log("Current Player: " + currentPlayer);
   newRound();
   generateDiceRoll();
 
@@ -75,23 +86,21 @@ function playButtonClicked() {
 
   //  Apply event rule to score
   if (randomEvent === "Dice roll") {
-    playerOneScore = lastDiceRoll;
+    playerOneScore += lastDiceRoll;
     console.log("score:" + " " + playerOneScore);
   } else if (randomEvent === "Double") {
-    playerOneScore = lastDiceRoll * 2;
+    playerOneScore = lastDiceRoll *= 2;
     console.log("score:" + " " + playerOneScore);
   }
 
   //  Switch current player
-  currentPlayer = player2;
+  if (currentPlayer === player1) {
+    currentPlayer = player2;
+  } else {
+    currentPlayer = player1;
+  }
 
-  //   if (currentPlayer === player1) {
-  //     currentPlayer = player2;
-  //   } else if (currentPlayer === player2) {
-  //     currentPlayer = player1;
-  //   }
-
-  console.log(currentPlayer);
+  console.log("New Player: " + currentPlayer);
 }
 
 function resetButtonClicked() {
