@@ -12,6 +12,8 @@ var player2 = "Alex";
 
 var currentPlayer = player1;
 
+var currentPlayerScore = 0;
+
 var playerOneScore = 0;
 
 var playerTwoScore = 0;
@@ -59,17 +61,15 @@ function trackCurrentEvent() {
 }
 
 function checkWin() {
-  if (playerOneScore === 20) {
+  if (playerOneScore === 20 || playerTwoScore === 20) {
     //  Stop game when someone wins
     //  Display winner
 
-    console.log("Player One Wins");
+    console.log("Game over");
   }
 }
 
 function playButtonClicked() {
-  // currentPlayer = player1;
-
   checkWin();
 
   console.log("Current Player: " + currentPlayer);
@@ -85,12 +85,23 @@ function playButtonClicked() {
   console.log("event: " + randomEvent);
 
   //  Apply event rule to score
-  if (randomEvent === "Dice roll") {
-    playerOneScore += lastDiceRoll;
-    console.log("score:" + " " + playerOneScore);
-  } else if (randomEvent === "Double") {
-    playerOneScore = lastDiceRoll *= 2;
-    console.log("score:" + " " + playerOneScore);
+
+  if (currentPlayer === player1) {
+    if (randomEvent === "Dice roll") {
+      playerOneScore += lastDiceRoll;
+      console.log("score:" + " " + playerOneScore);
+    } else if (randomEvent === "Double") {
+      playerOneScore += lastDiceRoll * 2;
+      console.log("score:" + " " + playerOneScore);
+    }
+  } else if (currentPlayer === player2) {
+    if (randomEvent === "Dice roll") {
+      playerTwoScore += lastDiceRoll;
+      console.log("score:" + " " + playerTwoScore);
+    } else if (randomEvent === "Double") {
+      playerTwoScore += lastDiceRoll * 2;
+      console.log("score:" + " " + playerTwoScore);
+    }
   }
 
   //  Switch current player
