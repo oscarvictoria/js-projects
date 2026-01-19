@@ -4,7 +4,13 @@ function playRound(value) {
 
     if (value === 'rock') {
         console.log('rock!'); 
-    } else {
+    } else if (value === 'paper') {
+        console.log('Paper!')
+
+    }
+
+
+     else {
         console.log('Not a real value'); 
     }
 
