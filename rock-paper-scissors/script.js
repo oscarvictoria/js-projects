@@ -1,17 +1,39 @@
 var choices = ['rock', 'paper', 'scissors']
 
+console.log('Pick a choice')
+
 function playRound(value) {
 
-    if (value === 'rock') {
-        console.log('rock!'); 
-    } else if (value === 'paper') {
-        console.log('Paper!')
+    var computer = computerChoice(); 
 
+    if(computer === value) {
+        console.log('its a tie!'); 
+        return;
     }
 
-
-     else {
-        console.log('Not a real value'); 
-    }
-
+    if (value === 'rock' && computer === 'scissors') {
+        console.log('user wins')
+    } else if(value === 'paper' && computer === 'rock') {
+        console.log('user wins')
+    } else if(value === 'scissors' && computer === 'paper') {
+        console.log('User Wins') 
+    } else  {  
+    console.log(computer)
+    console.log(value)
+    console.log('Computer Wins')
+   }
+   
 }
+
+
+function computerChoice() {
+    var randomNum = Math.floor(Math.random() * choices.length); 
+    var target = choices[randomNum]; 
+
+    return target; 
+}
+
+
+
+
+
