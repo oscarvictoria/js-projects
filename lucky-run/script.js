@@ -64,7 +64,6 @@ function checkWin() {
   if (playerOneScore >= 20 || playerTwoScore >= 20) {
     //  Stop game when someone wins
     //  Display winner
-
     console.log("Game over");
     resetButtonClicked(); 
   }
