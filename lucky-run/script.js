@@ -61,17 +61,17 @@ function trackCurrentEvent() {
 }
 
 function checkWin() {
-  if (playerOneScore === 20 || playerTwoScore === 20) {
+  if (playerOneScore >= 20 || playerTwoScore >= 20) {
     //  Stop game when someone wins
     //  Display winner
 
     console.log("Game over");
+    resetButtonClicked(); 
   }
 }
 
 function playButtonClicked() {
-  checkWin();
-
+  
   console.log("Current Player: " + currentPlayer);
   newRound();
   generateDiceRoll();
@@ -84,23 +84,35 @@ function playButtonClicked() {
 
   console.log("event: " + randomEvent);
 
-  //  Apply event rule to score
+  //  Apply event rule to player 1 score 
+
+
 
   if (currentPlayer === player1) {
     if (randomEvent === "Dice roll") {
       playerOneScore += lastDiceRoll;
       console.log("score:" + " " + playerOneScore);
+    
     } else if (randomEvent === "Double") {
       playerOneScore += lastDiceRoll * 2;
       console.log("score:" + " " + playerOneScore);
+  
     }
-  } else if (currentPlayer === player2) {
+  } 
+
+
+  
+    //  Apply event rule to player 2 score 
+  
+   if (currentPlayer === player2) {
     if (randomEvent === "Dice roll") {
       playerTwoScore += lastDiceRoll;
       console.log("score:" + " " + playerTwoScore);
+      
     } else if (randomEvent === "Double") {
       playerTwoScore += lastDiceRoll * 2;
       console.log("score:" + " " + playerTwoScore);
+      
     }
   }
 
@@ -110,6 +122,8 @@ function playButtonClicked() {
   } else {
     currentPlayer = player1;
   }
+
+  checkWin();
 
   console.log("New Player: " + currentPlayer);
 }
