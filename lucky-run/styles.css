@@ -1,0 +1,45 @@
+body {
+  /* background-color: red; */
+}
+
+header {
+  margin: 0 auto;
+  width: 200px;
+  text-align: center;
+}
+
+.round {
+  margin: 0 auto;
+  width: 200px;
+  text-align: center;
+}
+.players {
+  display: flex;
+  justify-content: space-around;
+}
+
+.controls {
+  /* border: 2px solid black; */
+  width: 300px;
+  margin: 0 auto;
+  height: 60px;
+  padding: 50px;
+}
+
+.controls button {
+  background-color: #ffff33;
+  color: red;
+  font-weight: bold;
+  border-radius: 40px;
+}
+
+.controls .play {
+  height: 60px;
+  width: 100px;
+  margin: 30px;
+}
+
+.controls .reset {
+  height: 60px;
+  width: 100px;
+}
