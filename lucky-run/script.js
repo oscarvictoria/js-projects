@@ -1,4 +1,8 @@
-var playerName = "Oscar";
+var playerName = "";
+
+var playerTwo = document.querySelector("#name-2");
+
+playerTwo.textContent = "Alex";
 
 var nameDisplay = document.querySelector("#name");
 
@@ -71,19 +75,26 @@ function trackCurrentEvent() {
 }
 
 function checkWin() {
-  if (playerOneScore >= 20 || playerTwoScore >= 20) {
-    console.log("Game over");
+  if (playerOneScore >= 20) {
+    window.alert(
+      "Game Over. Player One Wins with a score of " + playerOneScore
+    );
+    window.alert("Play Again");
+    resetButtonClicked();
+  } else if (playerTwoScore >= 20) {
+    window.alert(
+      "Game Over. Player Two Wins with a score of " + playerTwoScore
+    );
+    window.alert("Play Again");
     resetButtonClicked();
   }
 }
 
 function playButtonClicked() {
-  checkWin();
-  nameDisplay.textContent = "Current Player: " + currentPlayer;
   newRound();
   generateDiceRoll();
+  // checkWin();
 
-  // console.log("round:" + " " + round);
   roundText.innerHTML = `Round: ${round}`;
 
   // console.log("Dice Roll:" + " " + lastDiceRoll);
@@ -92,7 +103,7 @@ function playButtonClicked() {
   // Select random event
   trackCurrentEvent();
 
-  eventText.textContent = "event: " + randomEvent;
+  eventText.textContent = "Event: " + randomEvent;
 
   //  Apply event rule to player 1 score
 
@@ -100,13 +111,13 @@ function playButtonClicked() {
     if (randomEvent === "Dice roll") {
       playerOneScore += lastDiceRoll;
       // console.log("score:" + " " + playerOneScore);
-      playerOneText.textContent = "score:" + " " + playerOneScore;
+      playerOneText.textContent = "Score:" + " " + playerOneScore;
     } else if (randomEvent === "Double") {
       playerOneScore += lastDiceRoll * 2;
-      playerOneText.textContent = "score:" + " " + playerOneScore;
+      playerOneText.textContent = "Score:" + " " + playerOneScore;
       // console.log("score:" + " " + playerOneScore);
     } else if (randomEvent === "Nothing") {
-      playerOneText.textContent = "score:" + " " + playerOneScore;
+      playerOneText.textContent = "Score:" + " " + playerOneScore;
       // console.log("score:" + " " + playerOneScore);
     }
   }
@@ -116,24 +127,26 @@ function playButtonClicked() {
   if (currentPlayer === player2) {
     if (randomEvent === "Dice roll") {
       playerTwoScore += lastDiceRoll;
-      playerTwoText.textContent = "score:" + " " + playerTwoScore;
+      playerTwoText.textContent = "Score:" + " " + playerTwoScore;
     } else if (randomEvent === "Double") {
       playerTwoScore += lastDiceRoll * 2;
-      playerTwoText.textContent = "score:" + " " + playerTwoScore;
+      playerTwoText.textContent = "Score:" + " " + playerTwoScore;
     } else if (randomEvent === "Nothing") {
-      playerTwoText.textContent = "score:" + " " + playerTwoScore;
+      playerTwoText.textContent = "Score:" + " " + playerTwoScore;
     }
   }
 
   if (currentPlayer === player1) {
+    nameDisplay.textContent = "Current Player: " + "Oscar";
     currentPlayer = player2;
   } else {
+    nameDisplay.textContent = "Current Player: " + "Alex";
     currentPlayer = player1;
   }
 
   checkWin();
 
-  console.log("New Player: " + currentPlayer);
+  // console.log("New Player: " + currentPlayer);
 }
 
 function resetButtonClicked() {
@@ -146,13 +159,14 @@ function resetButtonClicked() {
   lastRoll.textContent = "Dice Roll:" + " " + lastDiceRoll;
 
   playerOneScore = 0;
-  playerOneText.textContent = "score:" + " " + playerOneScore;
+  playerOneText.textContent = "Score:" + " " + playerOneScore;
 
   currentPlayer = player1;
-  nameDisplay.textContent = currentPlayer;
 
   playerTwoScore = 0;
-  playerTwoText.textContent = "score:" + " " + playerTwoScore;
+  playerTwoText.textContent = "Score:" + " " + playerTwoScore;
+
+  nameDisplay.textContent = "";
 }
 
 var playButton = document.querySelector(".play");
