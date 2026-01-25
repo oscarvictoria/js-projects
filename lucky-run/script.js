@@ -1,10 +1,22 @@
-var playerName = "";
+
+
+var player1 = "Oscar";
+
+var player2 = "Alex";
+
+var currentPlayer = player1;
 
 var playerTwo = document.querySelector("#name-2");
 
-playerTwo.textContent = "Alex";
+var playerOne = document.querySelector('#name-1')
+
+playerTwo.textContent = player2;
+
+playerOne.textContent = player1; 
 
 var nameDisplay = document.querySelector("#name");
+
+nameDisplay.textContent = " Current Player:" + " " + currentPlayer;
 
 var roundText = document.querySelector("#round-text");
 
@@ -16,17 +28,15 @@ var lastRoll = document.querySelector("#last-roll");
 
 var eventText = document.querySelector("#event");
 
-nameDisplay.textContent = " Current Player:" + " " + playerName;
+
 
 var round = 0;
 
-var player1 = "Oscar";
 
-var player2 = "Alex";
 
-var currentPlayer = player1;
 
-var currentPlayerScore = 0;
+
+
 
 var playerOneScore = 0;
 
@@ -38,29 +48,27 @@ var currentEvent = ["Dice roll", "Double", "Nothing"];
 
 var randomEvent = "";
 
-function trackRound() {
-  return round;
-}
+
 
 function newRound() {
   return (round += 1);
 }
 
-function trackCurrentPlayer() {
-  return player1;
-}
+// function trackCurrentPlayer() {
+//   return player1;
+// }
 
-function trackPlayerTwo() {
-  return player2;
-}
+// function trackPlayerTwo() {
+//   return player2;
+// }
 
-function trackPlayerOneScore() {
-  return playerOneScore;
-}
+// function trackPlayerOneScore() {
+//   return playerOneScore;
+// }
 
-function trackPlayerTwoScore() {
-  return playerTwoScore;
-}
+// function trackPlayerTwoScore() {
+//   return playerTwoScore;
+// }
 
 function generateDiceRoll() {
   lastDiceRoll = Math.floor(Math.random() * (7 - 1) + 1);
@@ -88,6 +96,10 @@ function checkWin() {
     window.alert("Play Again");
     resetButtonClicked();
   }
+}
+
+function renderUI() {
+
 }
 
 function playButtonClicked() {
@@ -152,10 +164,9 @@ function playButtonClicked() {
 function resetButtonClicked() {
   round = 0;
 
-  score = 0;
   roundText.textContent = `Round: ${round}`;
 
-  lastDiceRoll = `0`;
+  lastDiceRoll = 0;
   lastRoll.textContent = "Dice Roll:" + " " + lastDiceRoll;
 
   playerOneScore = 0;
