@@ -14,7 +14,7 @@ playerOne.textContent = player1;
 
 var nameDisplay = document.querySelector("#name");
 
-nameDisplay.textContent = " Current Player:" + " " + currentPlayer;
+nameDisplay.textContent = " Current Player: " + currentPlayer;
 
 var roundText = document.querySelector("#round-text");
 
@@ -88,11 +88,12 @@ function renderUI() {
    playerTwoText.textContent = "Score:" + " " + playerTwoScore;
 
 
-   nameDisplay.textContent = "Current Player: " + currentPlayer;
+   nameDisplay.textContent = "Current Player:  " + currentPlayer;
 
 }
 
 function playButtonClicked() {
+  
 
   var points = 0
 
@@ -102,7 +103,7 @@ function playButtonClicked() {
   trackCurrentEvent();
 
 
-  if(randomEvent === 'Normal') {
+  if(randomEvent === 'Dice roll') {
     points = lastDiceRoll; 
   } else if (randomEvent === 'Double') {
     points = lastDiceRoll * 2
@@ -147,7 +148,7 @@ function resetButtonClicked() {
   playerTwoScore = 0;
   playerTwoText.textContent = "Score:" + " " + playerTwoScore;
 
-  nameDisplay.textContent = "";
+  nameDisplay.textContent = "Current Player: " + currentPlayer;
 }
 
 

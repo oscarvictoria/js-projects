@@ -16,18 +16,32 @@ header {
 
 .players {
   display: flex;
-  justify-content: space-around;
-  border: 2px solid black;
+  justify-content: space-evenly;
+  /* border: 2px solid black; */
   font-size: 24px;
+}
+
+.playerOne {
+  border: 3px solid black;
+   width: 200px;
+   padding: 20px;
+
+
+}
+
+.playerTwo {
+   border: 3px solid black;
+   width: 200px;
+   padding: 20px;
+
 }
 
 .event {
   font-size: 18px;
-  border: 2px solid black;
-  width: 300px;
+  border: 8px dotted red;
+  width: 400px;
   padding: 20px;
-  background-color: #000;
-  color: #fff;
+
 }
 
 .controls {
