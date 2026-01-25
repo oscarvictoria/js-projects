@@ -1,5 +1,3 @@
-
-
 var player1 = "Oscar";
 
 var player2 = "Alex";
@@ -28,15 +26,11 @@ var lastRoll = document.querySelector("#last-roll");
 
 var eventText = document.querySelector("#event");
 
+var playButton = document.querySelector(".play");
 
+var resetButton = document.querySelector(".reset");
 
 var round = 0;
-
-
-
-
-
-
 
 var playerOneScore = 0;
 
@@ -47,7 +41,6 @@ var lastDiceRoll = 1;
 var currentEvent = ["Dice roll", "Double", "Normal"];
 
 var randomEvent = "";
-
 
 
 function newRound() {
@@ -63,7 +56,6 @@ function trackCurrentEvent() {
   var randomNumber = Math.floor(Math.random() * currentEvent.length);
   randomEvent = currentEvent[randomNumber];
   return randomEvent;
-  //   return currentEvent[randomNumber];
 }
 
 function checkWin() {
@@ -98,9 +90,6 @@ function renderUI() {
 
    nameDisplay.textContent = "Current Player: " + currentPlayer;
 
-
-
-
 }
 
 function playButtonClicked() {
@@ -108,8 +97,8 @@ function playButtonClicked() {
   var points = 0
 
 
-   newRound();
-   generateDiceRoll();
+  newRound();
+  generateDiceRoll();
   trackCurrentEvent();
 
 
@@ -161,10 +150,10 @@ function resetButtonClicked() {
   nameDisplay.textContent = "";
 }
 
-var playButton = document.querySelector(".play");
+
 
 playButton.addEventListener("click", playButtonClicked);
 
-var resetButton = document.querySelector(".reset");
+
 
 resetButton.addEventListener("click", resetButtonClicked);
