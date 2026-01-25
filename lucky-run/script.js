@@ -118,6 +118,7 @@ function playButtonClicked() {
   }
 
 
+    renderUI();
 
 
   if (currentPlayer === player1) {
@@ -127,7 +128,7 @@ function playButtonClicked() {
   }
 
   checkWin();
-  renderUI();
+
 
 
 }
