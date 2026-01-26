@@ -30,8 +30,8 @@ var deck = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
 
 var usedCards = []
 
-var playerCards = 0
-var computerCards = 0
+var playerCards = []
+var computerCards = []
 
 var playerPoints = 0; 
 
@@ -51,24 +51,48 @@ function drawDeck(arr) {
 
 }
 
-function dealHands() {
+function addCard() {
 
-    if (deck.length <= 2) {
-        console.log('Gme Over'); 
+    if (deck.length >= 2) {
+        
+    playerCards.push(drawDeck(deck))
+
+    computerCards.push(drawDeck(deck))
+
     }
 
-    playerCards = drawDeck(deck)
-    console.log('Player Hand: ' + playerCards)
-    computerCards = drawDeck(deck)
-   console.log('Computer Hand: ' + computerCards)
+}
 
-    if (playerCards > computerCards) {
+function playHand() {
+
+        if (deck.length <= 2) {
+        determineWinner()
+        return 
+    }
+     
+     
+
+      if(playerCards.length === 0 || computerCards.length === 0) {
+        addCard()
+    }
+    
+  
+
+
+    var playerCard = playerCards.pop(); 
+    var computerCard = computerCards.pop();
+
+  
+    console.log(playerCard);  
+    console.log(computerCard); 
+
+        if (playerCard > computerCard) {
         console.log('Player Wins')
         playerPoints += 1; 
-    } else if (computerCards > playerCards) {
+    } else if (computerCard > playerCard) {
         console.log('Computer Wins')
         computerPoints += 1; 
-    } else if (playerCards === computerCards) {
+    } else if (playerCard === computerCard) {
         console.log("Its a tie")
         playerPoints += 1; 
         computerPoints += 1; 
@@ -78,19 +102,25 @@ function dealHands() {
     console.log("Player Points: " + playerPoints); 
     console.log("Computer Points: " + computerPoints); 
 
-    
- determineWinner()
+
 }
 
 
 function determineWinner() {
-  if (playerPoints >= 5) {
+  if (playerPoints > computerPoints) {
     console.log('Game Over. Player Wins')
-  } else if (computerPoints >= 5) {
+  } else if (computerPoints > playerPoints) {
     console.log('Game Over. Computer Wins')
+  } else if (computerPoints === playerPoints) {
+    console.log('Game Over. Its a tie')
   }
     
 }
+
+
+
+
+
 
 
 
