@@ -28,7 +28,6 @@
 
 var deck = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]; 
 
-var usedCards = []
 
 var playerCards = []
 var computerCards = []
@@ -65,7 +64,7 @@ function addCard() {
 
 function playHand() {
 
-        if (deck.length <= 2) {
+        if (deck.length < 2 && playerCards.length === 0 && computerCards.length === 0) {
         determineWinner()
         return 
     }
@@ -75,14 +74,18 @@ function playHand() {
       if(playerCards.length === 0 || computerCards.length === 0) {
         addCard()
     }
-    
-  
 
-
-    var playerCard = playerCards.pop(); 
+    // Check if both hands have atleast one card 
+    if (playerCards.length >= 1 && computerCards.length >=1) {
+     var playerCard = playerCards.pop(); 
     var computerCard = computerCards.pop();
+    } else {
+      determineWinner()
+      return
+    }
 
-  
+    
+    
     console.log(playerCard);  
     console.log(computerCard); 
 
