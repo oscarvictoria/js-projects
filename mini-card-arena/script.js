@@ -36,6 +36,48 @@ var playerPoints = 0;
 
 var computerPoints = 0;
 
+var card = []
+
+var playerCard = 0
+
+var computerCard = 0
+
+
+
+// DOM targets
+
+var playerScore = document.querySelector('#player-score')
+
+var computerScore = document.querySelector('#computer-score')
+
+var playButton = document.querySelector('.play'); 
+
+var cards = document.querySelector('.cards h2'); 
+
+
+// UI
+
+function updateUI() {
+  playerScore.textContent = 'Player Score: ' + playerPoints;
+  computerScore.textContent = 'Computer Score: ' + computerPoints; 
+  cards.innerHTML = 'Player: ' + playerCard + '<br><br>Computer: ' + computerCard; 
+   
+}
+
+// Events 
+
+playButton.addEventListener('click', playHand); 
+
+
+
+
+
+
+
+
+
+
+
 function drawDeck(arr) {
 
   var randomCard = Math.floor(Math.random() * arr.length);
@@ -63,6 +105,7 @@ function addCard() {
 }
 
 function playHand() {
+  console.log('button clicked')
 
         if (deck.length < 2 && playerCards.length === 0 && computerCards.length === 0) {
         determineWinner()
@@ -77,8 +120,8 @@ function playHand() {
 
     // Check if both hands have atleast one card 
     if (playerCards.length >= 1 && computerCards.length >=1) {
-     var playerCard = playerCards.pop(); 
-    var computerCard = computerCards.pop();
+    playerCard = playerCards.pop(); 
+    computerCard = computerCards.pop();
     } else {
       determineWinner()
       return
@@ -101,6 +144,8 @@ function playHand() {
         computerPoints += 1; 
     }
 
+    updateUI()
+
 
     console.log("Player Points: " + playerPoints); 
     console.log("Computer Points: " + computerPoints); 
@@ -119,6 +164,8 @@ function determineWinner() {
   }
     
 }
+
+
 
 
 

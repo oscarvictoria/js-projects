@@ -1,0 +1,29 @@
+header {
+    width: 30%;
+    margin: 40px auto;
+}
+
+.cards {
+    width: 300px;
+    margin: 20px auto;
+    padding: 25px;
+    text-align: center;
+}
+
+
+.player-container {
+    margin: 20px;
+    display: flex;
+    justify-content: space-around;
+
+
+}
+
+.play {
+    display: block;
+    width: 100px;
+    height: 80px;
+    margin: 0 auto;
+    font-weight: bold;
+    font-size: 28px;
+}
