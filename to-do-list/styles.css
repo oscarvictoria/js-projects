@@ -1,0 +1,38 @@
+
+
+form {
+     font-size: 18px;
+     margin: 0 auto;
+     width: 500px;
+     border: 2px solid black;
+     text-align: left;
+     padding: 10px;
+     height: 800px;
+    
+}
+
+form h1 {
+     text-align: center;
+}
+
+form input {
+    margin: 20px;
+    width: 250px;
+    height: 50px;
+    font-size: 22px;
+}
+
+form button {
+    margin: 20px;
+     width: 250px;
+    height: 50px;
+    text-align: left;
+    font-size: 22px;
+}
+
+.clear{
+    visibility: hidden;
+
+}
+    
+
