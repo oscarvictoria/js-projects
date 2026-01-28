@@ -16,6 +16,7 @@ var itemsContainer = document.querySelector('.display-items');
 
 var list = document.querySelector('.item-list')
 
+var filter = document.querySelector('.filter'); 
 
 var clearAll = document.querySelector('.clear')
 
@@ -31,18 +32,24 @@ list.addEventListener('click', listClicked)
 
 
 function listClicked(e) {
-    if (e.target.tagName !== 'LI') return;
+    // if (e.target.className !== "fa-solid fa-x") return;
 
+
+    if(e.target.className === 'fa-solid fa-x') {
+        
     const clickedText = e.target;
 
      const clickedIndex = Array.from(list.children).indexOf(e.target);
 
-    // remove element 
-    clickedText.remove()
-    itemsArray[clickedIndex] = itemsArray[itemsArray.length - 1]; 
+        clickedText.remove()
+            itemsArray[clickedIndex] = itemsArray[itemsArray.length - 1]; 
     itemsArray.pop();
-    // console.log(itemsArray)
+ 
     renderUI()
+
+    }
+    
+
 }
  
 function submitClicked(e) {
@@ -64,11 +71,8 @@ function submitClicked(e) {
 }
 
 function clearClicked(e) {
-
      itemsArray = []
      renderUI()
-    
-
 }
 
 function addToArray() {
@@ -81,12 +85,14 @@ function renderUI() {
     list.innerHTML = ''
 
     if(itemsArray.length > 0) {
-          list.style.display = "block"
+         list.style.display = "block"
          clearAll.style.display = 'block'
+         filter.style.display = 'block'
        
     } else if (itemsArray.length === 0) {
           list.style.display = "none"
-          clearAll.style.display = 'none'  
+          clearAll.style.display = 'none'
+          filter.style.display = 'none'  
     }
 
    
