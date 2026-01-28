@@ -29,6 +29,11 @@ clearAll.addEventListener('click', clearClicked)
 
 
 function submitClicked(e) {
+    if(newItem.value === '') {
+        alert('Empty Value')
+        return 
+    }
+
     e.preventDefault()
     addToArray();
      renderUI()
@@ -38,7 +43,8 @@ function submitClicked(e) {
 }
 
 function clearClicked(e) {
-     e.preventDefault()
+    //  e.preventDefault()
+     itemsContainer.innerHTML = ''
 
 }
 
@@ -51,10 +57,11 @@ function renderUI() {
 
     if(itemsArray.length > 0) {
           list.style.display = "block"
-            clearAll.style.visibility = 'visible'
+         clearAll.style.display = 'block'
        
     } else {
           list.style.display = "none"
+          clearAll.style.display = 'none'
          
   
        
