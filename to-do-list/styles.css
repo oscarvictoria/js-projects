@@ -36,7 +36,31 @@ form button {
 }
 
 .item-list {
-    display: none;
+    margin-left: 0;
+    padding-left: 0;
+  
+   
+    
+    /* display: none; */
+}
+
+li {
+    border: 2px solid black;
+    list-style: none;
+    padding: 10px;
+    margin: 20px;
+    position: relative;
+    
+}
+
+
+
+
+i {
+ position: absolute;
+  right: 10px; /* Distance from the right edge */
+  top: 30%;     /* Start halfway down the LI */
+  color: red;
 }
     
 

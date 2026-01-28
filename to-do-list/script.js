@@ -92,8 +92,17 @@ function renderUI() {
    
 
     for(let i = 0; i < itemsArray.length; i++) {
-      var item = document.createElement('li'); 
+
+      var item = document.createElement('li');
+
+      var icon = document.createElement('i')
+      icon.className = 'fa-solid fa-x'
+      
+      
       item.textContent = itemsArray[i];
+      item.appendChild(icon);
+
+
       list.appendChild(item);
 
      
