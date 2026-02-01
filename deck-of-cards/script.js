@@ -8,6 +8,20 @@ var userCards = []
 
 var computerCards = []
 
+var cardCenter = document.querySelector('.card-center'); 
+var cardCorner = document.querySelectorAll('.card-corner')
+
+
+function updateUI() {
+
+    cardCenter.innerHTML = computerCards.split(" of ")[1];
+    cardCorner.forEach(corner => {
+  corner.textContent = computerCards.split(" of ")[0]; 
+});
+    
+    
+}
+
 for(let i = 0; i < suits.length; i++) {
   for (let j = 0; j < values.length; j++) {
     var card = values[j] + " of " + suits[i]
@@ -29,6 +43,8 @@ function drawCard() {
 function playRound() {
  userCards = drawCard()
 computerCards = drawCard()
+
+updateUI()
 
 
 
