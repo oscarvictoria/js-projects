@@ -1,6 +1,6 @@
-var values = [2, 3, 4, 5, 6, 7, 8, 9, 10 ,'Jack', 'Queen', 'King', 'Ace']
+var values = [2, 3, 4, 5, 6, 7, 8, 9, 10 ,'J', 'Q', 'K', 'A']
 
-var suits = ['Hearts', 'Diamonds', 'Clubs', 'Spades']
+var suits = ['♥', '♦', '♣', '♠']; 
 
 var deck = []
 
@@ -21,7 +21,7 @@ function updateUI() {
     corner.textContent = computerCards.split(" of ")[0]; 
 })
 
-    if(computerCards.split(" of ")[1] === 'Diamonds' || computerCards.split(" of ")[1] === 'Hearts') {
+    if(computerCards.split(" of ")[1] === '♦' || computerCards.split(" of ")[1] === '♥') {
 cardClass.style.color = 'red'
 } else {
     cardClass.style.color = 'black'
@@ -80,19 +80,19 @@ if(getNumber(userCards) > getNumber(computerCards)) {
 
         var value = getValue(card)
 
-        if(value === 'Jack') {
+        if(value === 'J') {
             value = 11
         }
 
-        if (value === 'Queen') {
+        if (value === 'Q') {
             value = 12
         }
 
-        if (value === 'King') {
+        if (value === 'K') {
             value = 13
         }
          
-        if(value === 'Ace') {
+        if(value === 'A') {
             value = 14
         }
 
