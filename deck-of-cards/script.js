@@ -8,18 +8,47 @@ var userCards = []
 
 var computerCards = []
 
-var cardClass = document.querySelector('.card')
+var cardClass = document.querySelector('.computer-container')
 
-var cardCenter = document.querySelector('.card-center'); 
-var cardCorner = document.querySelectorAll('.card-corner')
+var playerContainer = document.querySelector('.player-container') 
+
+
+
+
+
+
+function updatePlayerUI() {
+       var playerCard = playerContainer.querySelector('.card-center')
+    var playerCardCorner = playerContainer.querySelectorAll('.card-corner')
+ 
+
+    playerCard.innerHTML = userCards.split(" of ")[1];
+    playerCardCorner.forEach(corner => {
+    corner.textContent = userCards.split(" of ")[0]; 
+})
+
+   if(userCards.split(" of ")[1] === '♦' || userCards.split(" of ")[1] === '♥') {
+    playerContainer.style.color = 'red'
+
+} else {
+    playerContainer.style.color = 'black'
+}
+
+}
 
 
 function updateUI() {
+    var cardCenter = cardClass.querySelector('.card-center'); 
+var cardCorner = cardClass.querySelectorAll('.card-corner')
+
+
 
     cardCenter.innerHTML = computerCards.split(" of ")[1];
     cardCorner.forEach(corner => {
     corner.textContent = computerCards.split(" of ")[0]; 
 })
+
+
 
     if(computerCards.split(" of ")[1] === '♦' || computerCards.split(" of ")[1] === '♥') {
 cardClass.style.color = 'red'
@@ -55,6 +84,7 @@ function playRound() {
 computerCards = drawCard()
 
 updateUI()
+updatePlayerUI()
 
 
 
