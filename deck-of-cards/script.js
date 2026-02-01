@@ -8,6 +8,8 @@ var userCards = []
 
 var computerCards = []
 
+var cardClass = document.querySelector('.card')
+
 var cardCenter = document.querySelector('.card-center'); 
 var cardCorner = document.querySelectorAll('.card-corner')
 
@@ -16,10 +18,18 @@ function updateUI() {
 
     cardCenter.innerHTML = computerCards.split(" of ")[1];
     cardCorner.forEach(corner => {
-  corner.textContent = computerCards.split(" of ")[0]; 
-});
-    
-    
+    corner.textContent = computerCards.split(" of ")[0]; 
+})
+
+    if(computerCards.split(" of ")[1] === 'Diamonds' || computerCards.split(" of ")[1] === 'Hearts') {
+cardClass.style.color = 'red'
+} else {
+    cardClass.style.color = 'black'
+}
+
+
+
+
 }
 
 for(let i = 0; i < suits.length; i++) {
